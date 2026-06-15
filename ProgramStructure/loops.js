@@ -30,3 +30,20 @@ for(let i = 1; i < 101; i++)
     }
    
 }
+
+//Ex 3 - ChessBoard
+let row = "# # # #"
+for( let i = 0; i < 8 ; i++)
+{
+    //if even - add space at front
+    if(i % 2 == 0)
+    {
+        console.log(" " + row+ "\n");
+    }
+    //if odd add space at back
+    else
+    {
+        console.log(row+" "+ "\n")
+    }
+      
+}
