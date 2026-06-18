@@ -1,3 +1,5 @@
+
+
 //EX 1 - Looping a triangle
 let x = 1;
 let hashes = "";
