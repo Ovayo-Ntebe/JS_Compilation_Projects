@@ -8,4 +8,14 @@ console.log(mathOperations.add(2,3)); */
 const {add, subtract, PI} = require("../CustomMathModule/mathOperations");
 const {currentDate, currentYear} = require("../CustomMathModule/logger")
 
-console.log( currentDate(), currentYear()); //call functions from logger module
+//console.log( currentDate(), currentYear()); //call functions from logger module
+
+// USING PATH MODULE - used for path and directories - check docs: https://nodejs.org/docs/latest-v24.x/api/path.html
+
+//firstly I can access the directory and filename using __dirname and __filename
+console.log(__dirname);
+console.log(__filename);
+//Now can use the Path module to find more about the paths 
+const path = require('node:path');
+const pathDeets = path.parse(__filename);
+console.log(pathDeets);
