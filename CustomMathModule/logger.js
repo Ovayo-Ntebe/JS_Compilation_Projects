@@ -7,7 +7,7 @@ function currentDate()
 
 function currentYear()
 {
-    return new Date().toTimeString();
+    return new Date().getFullYear();
 }
 
 module.exports = 
