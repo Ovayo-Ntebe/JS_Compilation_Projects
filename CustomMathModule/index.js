@@ -19,3 +19,8 @@ console.log(__filename);
 const path = require('node:path');
 const pathDeets = path.parse(__filename);
 console.log(pathDeets);
+
+//path.join = append a folder to a path 
+//eg use case - you are trying to add a folder in your db to store uploaded images
+const profilePath = path.join(__dirname, "uploads");
+console.log(profilePath);
