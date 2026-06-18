@@ -45,3 +45,22 @@ else
 //other nice functions of os 
 console.log(os.totalmem());
 console.log(os.freemem());
+
+
+//FS - file stream module 
+const fs = require("fs");
+
+//will output all files found in my current directory( or provided path)
+ const data = fs.readFileSync("./"); //can aslo use the async versin readFile 
+
+ //help with error handeling if the path has files of exists
+ fs.readdir("./", (err,data) => { // use a call back function (with arrow) to hanlde the output
+    if(err)
+    {
+        console.log(err)
+    }
+    else{
+        console.log(data);
+    }
+ });
+ //clean up this- "Error: EISDIR: illegal operation on a directory, read"
