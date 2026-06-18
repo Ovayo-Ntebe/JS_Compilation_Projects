@@ -24,3 +24,24 @@ console.log(pathDeets);
 //eg use case - you are trying to add a folder in your db to store uploaded images
 const profilePath = path.join(__dirname, "uploads");
 console.log(profilePath);
+
+//USING OS MODULE 
+const os = require("os");
+
+//output differnt msgs based on users os 
+if(os.platform() === "win32")
+{
+    console.log("Windows os detected");
+}
+else if(os.platform() === "darwin")
+{
+    console.log("Mac os detected");
+}
+else
+{
+    console.log("Other os detected");
+}
+
+//other nice functions of os 
+console.log(os.totalmem());
+console.log(os.freemem());
