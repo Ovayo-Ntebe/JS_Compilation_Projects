@@ -22,6 +22,9 @@ app.get('/', (req, res) => {
 
 });
 
-
+app.get('/dashboard', (req, res) => {
+    console.log('ohh now hit the /dashboard endpoint');
+    res.send('hi');
+})
 //server listen 
 app.listen(PORT, () => console.log(`Server has started listening on port ${PORT} `))
