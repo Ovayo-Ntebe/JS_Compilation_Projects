@@ -1,0 +1,9 @@
+### This file will emulate the browser/ users
+### TEST GET / WEBSITE
+GET http://localhost:3000
+
+### TEST GET /dashboard WEBSITE
+GET http://localhost:3000/dashboard
+
+### TEST DATA ENDPOINT GET
+GET http://localhost:3000/api/data
