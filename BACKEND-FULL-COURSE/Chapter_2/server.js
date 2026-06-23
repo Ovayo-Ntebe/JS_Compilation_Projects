@@ -19,7 +19,7 @@ const PORT = 3000;
 const data = {
     name: 'OV'
 }
-
+/*CRUD-method, create-post, read-get, update-put, delete-delete */
 
 /*---Type 1 -Website endpoints( these endpoints are for sending back html and they typically come when a user enters a url in a browser) */
 
@@ -28,7 +28,13 @@ app.get('/', (req, res) => {
    /* console.log('yay I hit an endpoint', req.method); //just printing the type of method which is get on consolse
     res.sendStatus(200); // this returns OK on client side browser */
     //i will now send html to the client
-    res.send('<h1>Homepage</h1>');
+   // res.send('<h1>Homepage</h1>');
+   //create a templete literal string to inject data
+   res.send(`
+    <body style = "background:pink; color:black">
+        <h1>Body:</h1>
+        <p>${JSON.stringify(data)}</p>
+    </body>`)
 
 });
 
