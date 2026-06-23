@@ -7,3 +7,15 @@ GET http://localhost:3000/dashboard
 
 ### TEST DATA ENDPOINT GET
 GET http://localhost:3000/api/data
+
+### DATA ENDPOINT FOR ADDING A USER 
+POST http://localhost:3000/api/data
+Content-Type: application/json
+
+{
+    "name":"Ovayo5"
+}
+
+### DELETE ENDPOINT 
+
+DELETE http://localhost:3000/api/data
