@@ -2,6 +2,8 @@
 import express from 'express';
 import path, {dirname} from 'path';
 import { fileURLToPath } from 'url';
+import authRoutes from './routes/authRoutes.js';
+import todoRoutes from './routes/todoRoutes.js';
 
 const app = express();
 
@@ -24,6 +26,11 @@ app.use(express.static(path.join(__dirname, '../public'))); //basically moves fr
 app.get('/', (req,res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html')); //send the index.html but just dynamically allcates the file path , i mean different pcs and stuff
 })
+
+
+//Routes 
+app.use('/auth', authRoutes); //adds the auth routes like register here
+app.use('/todos', authRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server has started on port: ${PORT}`);
