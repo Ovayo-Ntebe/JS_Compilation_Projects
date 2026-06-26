@@ -30,7 +30,7 @@ app.get('/', (req,res) => {
 
 //Routes 
 app.use('/auth', authRoutes); //adds the auth routes like register here
-app.use('/todos', authRoutes);
+app.use('/todos', todoRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server has started on port: ${PORT}`);
