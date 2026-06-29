@@ -21,9 +21,35 @@ router.post('/register', (req, res) => {
 
     //encrypt the password 
     const hashedPassword = bcrypt.hashSync(password, 8);
+
+    //but I need to make sure i catch any errors while inserting a user right
+    try{
+        //need to save user details to db
+        //prepare method is like the exec method but we run a sql query and inject values into the query
+        const insertUser = db.prepare(`INSERT INTO users (username, password) VALUES (?,?)`);
+        const result = insertUser.run(username, hashedPassword);
+
+        //now that we have a user , I want to add their first todo for them
+        const defaultTodo = `Hello :) Add your first todo!`;
+        const insertTodo = db.prepare(`INSERT INTO todos (user_id, task) VALUES (?, ?)`);
+        insertTodo.run(result.lastInsertRowid, defaultTodo); 
+
+        /*Create a token - once logged in user , they are in a poition to CRUD todos, but they can 
+        they can only modify theier own todos not anyones elses. to do this we need a special token with that network request
+        that confirms that they are an authenticated user */
+
+        //sets the token that will expire t=in 24h and they have to reauthenticate again
+        const token = jwt.sign({id: result.lastInsertRowid}, process.env.JWT_SECRET, {expiresIn: '24h'});
+        res.json({token});
+    }
+    catch(err){
+        console.log(err);
+        res.sendStatus(503);
+    }
+
     console.log(username, password);
     console.log(hashedPassword);
-    res.sendStatus(201); //created status
+   // res.sendStatus(201); //created status
 });
 
 router.post('/login', (req, res)=> {});
