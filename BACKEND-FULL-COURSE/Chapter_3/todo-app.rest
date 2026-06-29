@@ -19,3 +19,29 @@ Content-Type: application/json
     "password": "123456"
 }
 
+### fetch all todos GET /TODOS (protected)
+GET http://localhost:5003/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzgyNzU5OTgxLCJleHAiOjE3ODI4NDYzODF9.n0qyh0zlMzQjAnYrUfZbgbZ2CIkfGMdYBmrWMZ4wNwc
+### Create a new todo POST/TODOS (protected)
+POST http://localhost:5003/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzgyNzU5OTgxLCJleHAiOjE3ODI4NDYzODF9.n0qyh0zlMzQjAnYrUfZbgbZ2CIkfGMdYBmrWMZ4wNwc
+Content-Type: application/json
+
+{
+    "task": "Finsh coding the projects!!"
+}
+
+### Update a todo  PUT/TODO/:ID (protected)
+PUT http://localhost:5003/todos/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzgyNzU5OTgxLCJleHAiOjE3ODI4NDYzODF9.n0qyh0zlMzQjAnYrUfZbgbZ2CIkfGMdYBmrWMZ4wNwc
+Content-Type: application/json
+
+{
+    "completed": 1
+}
+
+
+### Delete a todo  PUT/TODO/:ID (protected)
+DELETE http://localhost:5003/todos/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzgyNzU5Mjc3LCJleHAiOjE3ODI4NDU2Nzd9.sSKMAk3WBtg0KhjaGw2DPqc1XjBbLav1JdM1LDArTg4
+Content-Type: application/json
