@@ -4,6 +4,7 @@ import path, {dirname} from 'path';
 import { fileURLToPath } from 'url';
 import authRoutes from './routes/authRoutes.js';
 import todoRoutes from './routes/todoRoutes.js';
+import authMiddleware from './middleware/authMiddleware.js';
 
 const app = express();
 
@@ -30,7 +31,8 @@ app.get('/', (req,res) => {
 
 //Routes 
 app.use('/auth', authRoutes); //adds the auth routes like register here
-app.use('/todos', todoRoutes);
+//app.use('/todos', todoRoutes); now add the middle ware to authenticate a token so that the user can use other todos cruds
+app.use('/todos',authMiddleware, todoRoutes);//so will start at middleware then the todoRoutes
 
 app.listen(PORT, () => {
     console.log(`Server has started on port: ${PORT}`);
