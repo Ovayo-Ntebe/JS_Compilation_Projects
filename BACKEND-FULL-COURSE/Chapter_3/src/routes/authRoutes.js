@@ -16,11 +16,19 @@ router.post('/register', (req, res) => {
     const body = req.body; //can use object desctructing as well const{username, password} = req.body
     const username = body.username;
     const password = body.password;
+    //save the username and an irreversable encrpyted password
+    //save mash@gmail.com and 8883..hfhh(the encrpted version of password 123456)
+
+    //encrypt the password 
+    const hashedPassword = bcrypt.hashSync(password, 8);
     console.log(username, password);
+    console.log(hashedPassword);
     res.sendStatus(201); //created status
 });
 
 router.post('/login', (req, res)=> {});
+//we get theier email and we look up the password associated with that email in the database.
+//but we get it back and see its encrypted , which means that we cannot compare it to the one the user just used trying to login
 
 
 
